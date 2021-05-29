@@ -1,1 +1,18 @@
 Scope of the project:
+Get Users and 10 posts. For each display:
+-show just an overview of the posts (titles, username)
+-clicking a post navigates via router to see post and author details 
+
+Editing posts 
+-when in the detail each post is editable (title, text)
+-change can be submitted 
+-after submitting, go back to overview 
+
+Create a new post 
+-create a new post on behalf of the logged in user (hardcoded)
+
+Delete a post 
+
+
+//API placeholder
+http://jsonplaceholder.typicode.com/
