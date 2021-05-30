@@ -1,0 +1,26 @@
+.Post{
+  text-align: left;
+  list-style: none;
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 0.1em 1em;
+  margin: 0.25em 0.5em;
+}
+
+.Post a{
+  display: flex;
+  justify-content: start;
+  align-items:flex-start;
+  flex-direction: column;
+  color: #000;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.Post h4{
+  margin: 0.5em 0em;
+}
+
+.Post p{
+  margin: 0.25em 0em;
+}

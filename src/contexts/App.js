@@ -12,16 +12,12 @@ import handleInitialData from '../actions/shared';
 
 //Components
 import Post from '../components/Post/Post';
+import PostDetails from './PostDetails';
 
 
-function App() {
-  const dispatch = useDispatch();
-  React.useEffect(()=>{
-    dispatch(handleInitialData());
-  },[dispatch]);
-
+//DISPLAY POSTS Component
+function LatestPosts () {
   const posts = Object.values(useSelector((state)=>state.posts));
-
   const displayPosts = () => {
     let postsUI = [];
     if(posts.length > 0){
@@ -35,13 +31,33 @@ function App() {
     return postsUI;
   }
 
-  return (
-    <div className={classes.App}>
-      <h1>Latest comments</h1>
+  return(
+    <React.Fragment>
+      <h1>Latest posts</h1>
       <ul>
-      {displayPosts()}
+        {displayPosts()}
       </ul>
-    </div>
+    </React.Fragment>
+  )
+}
+
+//APP Component
+function App() {
+  const dispatch = useDispatch();
+  React.useEffect(()=>{
+    dispatch(handleInitialData());
+  },[dispatch]);
+
+
+  return (
+    <BrowserRouter>
+      <div className={classes.App}>
+       <Switch>
+         <Route path="/" exact component={LatestPosts}/>
+         <Route path="/post/:id" component={PostDetails}/>
+       </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
