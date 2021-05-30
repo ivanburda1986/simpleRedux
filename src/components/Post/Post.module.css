@@ -24,3 +24,15 @@
 .Post p{
   margin: 0.25em 0em;
 }
+
+.Content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Content button{
+  cursor: pointer;
+}
