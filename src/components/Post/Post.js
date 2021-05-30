@@ -6,7 +6,7 @@ import {BsPencil} from 'react-icons/bs';
 
 import classes from './Post.module.css';
 
-export default function Post({id, detail}) {
+export default function Post({id, detail, click}) {
   const posts = useSelector((state)=>state.posts);
   const post = posts[id-1];
 
@@ -15,7 +15,11 @@ export default function Post({id, detail}) {
       <li className={classes.Post}>
       <Link to={"/post/"+parseInt(id)}>
       <h4>{post.id}. {post.title}</h4> 
-        <div className={classes.Content}><p>{detail ? post.body : post.body.substr(0,50)+"..."}</p><button><BsPencil/></button></div>
+        <div className={classes.Content}>
+          <p>{detail ? post.body : post.body.substr(0,50)+"..."}</p>
+          {detail ? <button onClick={click}><BsPencil/></button> : null}
+        
+        </div>
       </Link>
       </li>
     )
