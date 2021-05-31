@@ -14,8 +14,11 @@ export default function PostDetails() {
   const {id} = useParams();
   const [showEditor, setShowEditor] = React.useState(false);
   const posts  = useSelector((state)=>state.posts);
-  console.log("POSTS: ", posts);
 
+  if(posts === {}){
+    return null;
+  } else if (posts !== {}) {
+    console.log("Posts", posts);
     return (
       <div className={classes.PostDetails}>
         <User
@@ -30,5 +33,8 @@ export default function PostDetails() {
   
       </div>
     )
+  } else {
+    return null;
+  }
 
 }
